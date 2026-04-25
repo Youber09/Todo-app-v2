@@ -14,6 +14,7 @@ const Sound = ({ file, volume }: { file: { name: string, isDirectory: boolean, i
             if(playing){
                 
                 file.audio.currentTime = 0
+                file.audio.volume = volume / 100
 
                 return
             }
