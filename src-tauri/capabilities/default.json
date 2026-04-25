@@ -20,6 +20,8 @@
     "sql:allow-load",
     "opener:allow-open-path",
     "opener:allow-default-urls",
+    "device-info:default"
+    ,
     {
       "identifier": "opener:allow-open-path",
       "allow": [

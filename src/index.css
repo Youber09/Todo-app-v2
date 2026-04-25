@@ -4,3 +4,12 @@
   scrollbar-width: thin;
   scrollbar-color: #0062ff #fff3
 }
+
+.bg-blur::after  {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  translate: -100%;
+  filter: blur(10vw);
+  opacity: 50%;
+}

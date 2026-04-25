@@ -1,8 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import Upload from '../../assets/Upload'
-import { onUpload, readSoundFiles} from '../../utils/soundBoard'
+import { onUpload, readSoundFiles } from '../../utils/soundBoard'
 import Sound from '../../components/Sound'
+import { getHardwareID, signLicense, verifyLicense } from '../../utils/Licensing'
 
 export const Route = createFileRoute('/soundboard/')({
   component: RouteComponent,
@@ -15,7 +16,6 @@ function RouteComponent() {
   const [files, setFiles] = useState([]) as [{ name: string, isDirectory: boolean, isFile: boolean, isSymlink: boolean, audio: HTMLAudioElement }[], Function]
   const [vol, setVol] = useState(false)
   const [volume, setVolume] = useState(50) as [any, Function]
-  const [sch, setSch] = useState(false)
 
   const volRef = useRef<HTMLInputElement>(null)
 
@@ -36,7 +36,7 @@ function RouteComponent() {
 
     <div className='flex flex-col space-y-[1vw] fixed top-0 left-0 m-[1.5vw]'>
       <button onClick={() => setVol(!vol)} className='bg-white/10 rounded-[1vw] text-white  p-[2vw] py-[1vw] text-[1.4vw] font-medium tracking-wider cursor-pointer hover:bg-white/20 hover:scale-105 transition-all '>Volume</button>
-      <button onClick={() => setSch(!sch)} className='bg-white/10 rounded-[1vw] text-white  p-[2vw] py-[1vw] text-[1.4vw] font-medium tracking-wider cursor-pointer hover:bg-white/20 hover:scale-105 transition-all' >Search</button>
+      {/* <button onClick={() => setSch(!sch)} className='bg-white/10 rounded-[1vw] text-white  p-[2vw] py-[1vw] text-[1.4vw] font-medium tracking-wider cursor-pointer hover:bg-white/20 hover:scale-105 transition-all' >Search</button> */}
     </div>
 
     <div className='flex flex-col space-y-[1vw]'>

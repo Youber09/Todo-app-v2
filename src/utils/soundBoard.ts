@@ -52,6 +52,9 @@ export const readSoundFiles = async (search: string) => {
 }
 
 export const roundDuration = (duration: number) => {
+
+    
+
     const rounded = Math.round(duration)
     let seconds : number | string = rounded % 60
     let minutes : number | string = Math.trunc(rounded / 60) % 60

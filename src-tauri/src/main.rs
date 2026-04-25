@@ -7,6 +7,8 @@ use tauri_plugin_opener;
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_device_info::init())
+        .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_sql::Builder::new().build())
         // ✅ Plugins
         .plugin(tauri_plugin_autostart::Builder::new().build())
